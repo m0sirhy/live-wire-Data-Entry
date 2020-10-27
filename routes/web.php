@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,6 @@ Route::get('/', function () {
 });
 
 
+Route::get('importExportView', [GateController::class, 'importExportView']);
+Route::get('export', [GateController::class, 'export'])->name('export');
+Route::post('import', [GateController::class, 'import'])->name('import');

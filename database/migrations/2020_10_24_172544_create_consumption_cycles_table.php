@@ -19,8 +19,8 @@ class CreateConsumptionCyclesTable extends Migration
             $table->text('full_name');
             $table->text('mobile');
             $table->text('address');
-            $table->unsignedInteger('previous');
-            $table->unsignedInteger('curent')->nullable();
+            $table->unsignedBigInteger('previous');
+            $table->unsignedBigInteger('curent')->nullable();
             $table->unsignedInteger('label')->default(1);
 
             $table->timestamps();
