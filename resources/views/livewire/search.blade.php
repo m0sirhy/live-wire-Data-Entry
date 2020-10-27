@@ -38,7 +38,7 @@
                     <span class="input-group-text  bg-primary text-white" id="inputGroup-sizing-sm">{{$client['curent']}}</span>
                     @endif
 
-                    <input type="text" wire:model.lazy="curent"  id="inputGroup-sizing-sm" class="form-control no-border">
+                    <input type="number" wire:model.lazy="curent"  id="inputGroup-sizing-sm" class="form-control no-border">
                     <button type="button" wire:click.prevent="update({{$client['id']}})" class="btn btn-success">enter</button>
 
                 </div>
