@@ -6,6 +6,12 @@
             <div class="alert alert-success">
                 {{ session('message') }}
             </div>
+
+            <div class="invisible">
+<audio controls autoplay >
+  <source src="{{ asset('assets/sounds/notify.mp3')}}" type="audio/mpeg">
+</audio>
+</div>
         @endif
     </div> 
     <div class="input-group form-container">
@@ -16,7 +22,7 @@
                 <img src="{{ asset('assets/images/search.png')}}" width="40">
             </button>
         </span>
-        <div class="dropdown-item no-border " class="form-control">
+        <div class="dropdown-item no-border container-fluid " style="height: 250px;; overflow-y: scroll;">
 
             @foreach($clients as $i => $client)
             <form>
@@ -25,13 +31,14 @@
 
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">{{ $client['full_name'] }}</span>
-                    <span class="input-group-text" id="inputGroup-sizing-sm">{{ $client['address'] }}</span>
+                    <span class="input-group-text colmd" id="inputGroup-sizing-sm">{{ $client['address'] }}</span>
                     <span class="input-group-text bg-danger text-white" id="inputGroup-sizing-sm">{{ $client['previous'] }}</span>
 
                     @if($client['curent'])
                     <span class="input-group-text  bg-primary text-white" id="inputGroup-sizing-sm">{{$client['curent']}}</span>
                     @endif
-                    <input type="text" wire:model="curent" id="inputGroup-sizing-sm" class="form-control no-border">
+
+                    <input type="text" wire:model.lazy="curent"  id="inputGroup-sizing-sm" class="form-control no-border">
                     <button type="button" wire:click.prevent="update({{$client['id']}})" class="btn btn-success">enter</button>
 
                 </div>
