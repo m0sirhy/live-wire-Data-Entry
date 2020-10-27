@@ -1,9 +1,12 @@
-<div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search-box">
+<div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search-box mr-3">
 
     <div>
         @if (session()->has('message'))
+
+        
         <div class="alert alert-success">
             {{ session('message') }}
+
         </div>
 
         <div class="invisible">
@@ -14,7 +17,7 @@
         @endif
     </div>
     <div class="input-group form-container">
-        <input type="text" name="search" wire:model="query" wire:keydown.escape="resett" wire:keydown.tab="resett" class="form-control search-input" placeholder="Keyword" autofocus="autofocus" autocomplete="off" onclick="setBgToDark()">
+        <input type="text" name="search" wire:model="query" wire:keydown.escape="resett" wire:keydown.tab="resett" class="form-control search-input" placeholder="ادخل اسم للبحث" autofocus="autofocus" autocomplete="off" onclick="setBgToDark()">
 
         <span class="input-group-btn">
             <button class="btn btn-search">
@@ -39,7 +42,7 @@
                     @endif
 
                     <input type="number"  wire:model.defer="curent" id="inputGroup-sizing-sm" class="form-control no-border">
-                    <button type="button"   wire:click.prevent="update({{$client['id']}})" class="btn btn-success">enter</button>
+                    <!-- <button type="button"   wire:click.prevent="update({{$client['id']}})" class="btn btn-success">enter</button> -->
 
                 </div>
             </form>
