@@ -9,19 +9,23 @@ use App\Models\ConsumptionCycle;
 class Search extends Component
 {
     
-    public $query, $clients, $curent, $selected_id;
-    public $updateMode = false;
+    public $query, $clients, $curent;
 
     public function mount()
     {
         $this->clients=[];
         $this->query = '';
         $this->curent='';
-
+        $this->reset();
 
     }
 
+    public function resett()
+    {
+        $this->reset(['query', 'clients','curent']);
 
+      
+    }
     public function updatedQuery()
     {
 
@@ -53,5 +57,7 @@ class Search extends Component
         $this->clients=[];
 
     }
+
+  
 
 }
