@@ -39,7 +39,7 @@ Route::get('load-more-user', function () {
 Route::prefix('dashboard')->name('dashboard.')->group(function () {
 
     Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-    Route::get('/dashboard', [GateController::class, 'importExportView']);
+    Route::get('/dashboard', [GateController::class, 'import']);
     Route::resource('/cycles',CycleController::class);
 
 
