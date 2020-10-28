@@ -33,13 +33,7 @@ class GateController extends Controller
     {
         Excel::import(new ConsumptionCycleImport,request()->file('file'));
              
-        Excel::filter('chunk')->load('file.csv')->chunk(250, function($results)
-{
-        foreach($results as $row)
-        {
-            // do stuff
-        }
-});
+        
         return back();
     }
 
