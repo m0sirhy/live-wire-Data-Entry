@@ -24,7 +24,7 @@ Route::get('/show', function () {
     return view('entry.home');
 });
 
-Route::get('importExportView', [GateController::class, 'import']);
+Route::get('import', [GateController::class, 'importExportView']);
 Route::get('export', [GateController::class, 'export'])->name('export');
 Route::post('import', [GateController::class, 'import'])->name('import');
 
@@ -33,14 +33,6 @@ Route::get('load-more-user', function () {
     return view('default');
 
 });
-
-
-//->middleware(['auth'])
-Route::prefix('dashboard')->name('dashboard.')->group(function () {
-
-    Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-    Route::get('/dashboard', [GateController::class, 'import']);
-    Route::resource('/cycles',CycleController::class);
 
 
 });//end of dashboard routes
