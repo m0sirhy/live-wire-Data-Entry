@@ -24,7 +24,7 @@ Route::get('/show', function () {
     return view('entry.home');
 });
 
-Route::get('import', [GateController::class, 'importExportView']);
+Route::get('importExport', [GateController::class, 'importExportView']);
 Route::get('export', [GateController::class, 'export'])->name('export');
 Route::post('import', [GateController::class, 'import'])->name('import');
 
@@ -34,5 +34,3 @@ Route::get('load-more-user', function () {
 
 });
 
-
-});//end of dashboard routes
