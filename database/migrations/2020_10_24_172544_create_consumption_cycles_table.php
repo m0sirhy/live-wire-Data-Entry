@@ -14,9 +14,11 @@ class CreateConsumptionCyclesTable extends Migration
     public function up()
     {
         Schema::create('consumption_cycles', function (Blueprint $table) {
+            $table->index([ 'full_name']);
+
             $table->id();
             $table->unsignedInteger('cycle_id');
-            $table->text('full_name');
+            $table->string('full_name',191);
             $table->text('mobile');
             $table->text('address');
             $table->unsignedBigInteger('previous');

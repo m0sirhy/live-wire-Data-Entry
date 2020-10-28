@@ -17,7 +17,7 @@ class ClientSeeder extends Seeder
     {
 
         $faker = Faker::create('ar_JO');
-        foreach (range(1,1500) as $index) {
+        foreach (range(1,3000) as $index) {
             DB::table('consumption_cycles')->insert([
                 'cycle_id' =>1,
 

@@ -35,4 +35,5 @@ class GateController extends Controller
              
         return back();
     }
+
 }

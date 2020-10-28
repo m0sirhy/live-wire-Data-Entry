@@ -1,19 +1,14 @@
-<div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search-box mr-3">
+<div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search-box mr-3" wire:click="resett">
 
     <div>
         @if (session()->has('message'))
 
-        
+
         <div class="alert alert-success">
             {{ session('message') }}
 
         </div>
 
-        <div class="invisible">
-            <audio controls autoplay>
-                <source src="{{ asset('assets/sounds/notify.mp3')}}" type="audio/mpeg">
-            </audio>
-        </div>
         @endif
     </div>
     <div class="input-group form-container">
@@ -24,11 +19,11 @@
                 <img src="{{ asset('assets/images/search.png')}}" width="40">
             </button>
         </span>
-        @if($clients > 0 )
+        @if(!empty($clients ) )
 
         <div class="dropdown-item bg-transparent" style="height: 250px;; overflow-y: scroll;">
             @foreach($clients as $i => $client)
-            <form  wire:keydown.enter.prevent="update({{$client['id']}})">
+            <form wire:keydown.enter.prevent="update({{$client['id']}})">
                 <input type="hidden" wire:model="post_id">
 
 
@@ -41,7 +36,7 @@
                     <span class="input-group-text  bg-primary text-white" id="inputGroup-sizing-sm">{{$client['curent']}}</span>
                     @endif
 
-                    <input type="number"  wire:model.defer="curent" id="inputGroup-sizing-sm" class="form-control no-border">
+                    <input type="number" wire:model.defer="curent" id="inputGroup-sizing-sm" class="form-control no-border">
                     <!-- <button type="button"   wire:click.prevent="update({{$client['id']}})" class="btn btn-success">enter</button> -->
 
                 </div>
@@ -49,5 +44,5 @@
             @endforeach
         </div>
         @endif
+
     </div>
-</div>

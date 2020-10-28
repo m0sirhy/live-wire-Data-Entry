@@ -30,9 +30,10 @@ class Search extends Component
     {
 
         $this->clients = ConsumptionCycle::where('full_name', 'like', '%' . $this->query . '%')
-            ->limit(40)
+            ->limit(5)
             ->get()
             ->toArray();
+            
     }
 
     public function update($id)
@@ -43,7 +44,8 @@ class Search extends Component
             $record->update([
                 'curent' => $this->curent,
             ]);
-            session()->flash('message', $record->full_name.' " :تمت اضافة قراءة للسيد '   );
+            $consume=  $record->curent-$record->previous;
+            session()->flash('message',' " :تمت اضافة قراءة للسيد '. $record->full_name ." كمية الاستهلاك " .$consume ."كيلو واط" );
 
             $this->resetInput();
             $this->updateMode = false;
@@ -57,7 +59,8 @@ class Search extends Component
         $this->clients=[];
 
     }
-
-  
-
+    public function render()
+    {
+        return view('livewire.search');
+    }
 }

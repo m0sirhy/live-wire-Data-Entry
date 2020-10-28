@@ -14,14 +14,17 @@ class ConsumptionCycleImport implements ToModel
     */
     public function model(array $row)
     {
+
         return new ConsumptionCycle([
             //
             
-            'full_name'     => $row['full_name'],
-            'mobile'    => $row['mobile'],
-            'address'     => $row['address'],
-            'previous'     => $row['previous'],
-            'curent'     => $row['curent'],
+            'full_name'     => $row['0'],
+            'cycle_id'     => 1,
+
+            'mobile'    => $row['1'],
+            'address'     => $row['2'],
+            'previous'     => $row['3'],
+            'curent'     => $row['4'],
         ]);
     }
 }
