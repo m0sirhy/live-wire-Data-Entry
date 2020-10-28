@@ -24,7 +24,6 @@ class ConsumptionCycleImport implements ToModel, WithBatchInserts, WithChunkRead
             'mobile'    => $row['1'],
             'address'     => $row['2'],
             'previous'     => $row['3'],
-            'curent'     => $row['4'],
         ]);
     }
     public function batchSize(): int
