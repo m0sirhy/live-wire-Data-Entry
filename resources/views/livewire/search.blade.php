@@ -1,4 +1,4 @@
-<div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search-box mr-3" wire:click="resett">
+<div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search-box mr-3">
 
     <div>
         @if (session()->has('message'))
@@ -15,8 +15,7 @@
         <input type="text" name="search" wire:model="query" wire:keydown.escape="resett" wire:keydown.tab="resett" class="form-control search-input" placeholder="ادخل اسم للبحث" autofocus="autofocus" autocomplete="off" onclick="setBgToDark()">
 
         <span class="input-group-btn">
-            <button class="btn btn-search">
-                <img src="{{ asset('assets/images/search.png')}}" width="40">
+            <button class="btn btn-search" wire:click="resett" value="Reset">Reset
             </button>
         </span>
         @if(!empty($clients ) )
