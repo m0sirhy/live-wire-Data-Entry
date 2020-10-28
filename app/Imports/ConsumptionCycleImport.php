@@ -4,8 +4,10 @@ namespace App\Imports;
 
 use App\Models\ConsumptionCycle;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class ConsumptionCycleImport implements ToModel
+class ConsumptionCycleImport implements ToModel, WithBatchInserts, WithChunkReading
 {
     /**
     * @param array $row
@@ -24,5 +26,13 @@ class ConsumptionCycleImport implements ToModel
             'previous'     => $row['3'],
             'curent'     => $row['4'],
         ]);
+    }
+    public function batchSize(): int
+    {
+        return 250;
+    }
+    public function chunkSize(): int
+    {
+        return 200;
     }
 }
