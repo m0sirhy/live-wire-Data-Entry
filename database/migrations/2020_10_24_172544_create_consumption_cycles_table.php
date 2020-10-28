@@ -17,16 +17,15 @@ class CreateConsumptionCyclesTable extends Migration
             $table->index([ 'full_name']);
 
             $table->id();
-            $table->unsignedInteger('cycle_id');
             $table->string('full_name',191);
             $table->text('mobile');
             $table->text('address');
+            $table->unsignedBigInteger('year')->default(0);
+            $table->unsignedBigInteger('month')->default(0);
             $table->unsignedBigInteger('previous');
             $table->unsignedBigInteger('curent')->nullable();
             $table->unsignedInteger('label')->default(1);
-
             $table->timestamps();
-            $table->foreign('cycle_id')->references('id')->on('cycles')->onDelete('cascade');
 
         });
     }

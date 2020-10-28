@@ -19,12 +19,13 @@ class ClientSeeder extends Seeder
         $faker = Faker::create('ar_JO');
         foreach (range(1,3000) as $index) {
             DB::table('consumption_cycles')->insert([
-                'cycle_id' =>1,
 
                 'full_name' => $faker->name,
                 'mobile' => $faker->PhoneNumber,
                 'address' => $faker->Address,
                 'previous' => $faker->randomDigitNotNull,
+                'curent' => $faker->randomDigitNotNull,
+
 
             ]);
         }
