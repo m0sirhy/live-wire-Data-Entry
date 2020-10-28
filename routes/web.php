@@ -24,7 +24,7 @@ Route::get('/show', function () {
     return view('entry.home');
 });
 
-Route::get('importExportView', [GateController::class, 'importExportView']);
+Route::get('importExportView', [GateController::class, 'import']);
 Route::get('export', [GateController::class, 'export'])->name('export');
 Route::post('import', [GateController::class, 'import'])->name('import');
 
