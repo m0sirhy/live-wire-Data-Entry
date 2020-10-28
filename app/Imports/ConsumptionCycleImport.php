@@ -19,8 +19,6 @@ class ConsumptionCycleImport implements ToModel
             //
             
             'full_name'     => $row['0'],
-            'cycle_id'     => 1,
-
             'mobile'    => $row['1'],
             'address'     => $row['2'],
             'previous'     => $row['3'],

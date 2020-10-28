@@ -20,7 +20,7 @@
         </span>
         @if(!empty($clients ) )
 
-        <div class="dropdown-item bg-transparent" style="height: 250px;; overflow-y: scroll;">
+        <div class="dropdown-item bg-transparent" style="height: 250px; overflow-y: scroll; ">
             @foreach($clients as $i => $client)
             <form wire:keydown.enter.prevent="update({{$client['id']}})">
                 <input type="hidden" wire:model="post_id">
